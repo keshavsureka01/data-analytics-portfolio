@@ -105,7 +105,21 @@ Using Python (TextBlob):
 - Normalized score using:  
 
 ```python
-normalized_score = (polarity + 1) / 2
+# 'dataset' holds the input data for this script
+from textblob import TextBlob
+
+def get_sentiment(text):
+    if text:
+        # Get the default polarity (-1 to 1)
+        score = TextBlob(str(text)).sentiment.polarity
+        # Convert to 0 to 1 scale
+        normalized_score = (score + 1) / 2
+        return normalized_score
+    else:
+        return 0.5 # Return neutral if text is missing
+
+# Apply the function to your Feedback column
+dataset['Sentiment_Score'] = dataset['Feedback'].apply(get_sentiment)
 ```  
 
 - Categorized as:  
