@@ -20,7 +20,7 @@ The goal is to extract meaningful insights, build an interactive dashboard, and 
 - [Insurance Data Analysis.pbix](./Insurance%20Data%20Analysis%20(Project%201).pbix) - Interactive Power BI report 
 - [InsuranceData.csv](./InsuranceData.csv) - Main dataset  
 - [Insurance-Customer-Feedback.xlsx](./Insurance-Customer-Feedback.xlsx) - Secondary dataset
-- [Page 1 Dashboard](./Page%201%20(Project%20-%201).jpg) - Dashboard images 
+- [Page 1 Dashboard](./Page%201%20(Project%20-%201)%20updated.jpg) - Dashboard images 
 - [Page 2 Dashboard](./Page%202%20(Project%20-%201).jpg) - Dashboard images  
 - [Page 3 Dashboard](./Page%203%20(Project%20-%201).jpg) - Dashboard images
 - [README.md](./README.md) - Documentation
@@ -67,7 +67,7 @@ Key steps performed:
 Main visuals included:
 ## 📸 Main Page
 
-![Dashboard Main](./Page%201%20(Project%20-%201).jpg)
+![Dashboard Main](./Page%201%20(Project%20-%201)%20updated.jpg)
 - [Page 2](./Page%202%20(Project%20-%201).jpg) - contains Table with conditional formatting
 
 ## Page 3 - WordCloud (sentiment
@@ -77,11 +77,12 @@ Main visuals included:
 ---
 
 ## 💡 Key Insights  
-- Insight 1: ____  
-- Insight 2: ____  
-- Insight 3: ____  
-- Insight 4: ____  
-- Insight 5: ____  
+
+1. **58% of all policies are active**, indicating strong customer retention.  
+2. **Travel policies generate the highest premium**, while Home policies generate the lowest.  
+3. **Travel policies have the highest number of rejected claims**, highlighting potential process inefficiencies.  
+4. **Customers aged 60+ report the highest claim amounts (₹6.4M)**, suggesting increased risk in elder demographics.  
+5. **31% of customers expressed dissatisfaction**, driven by issues like complex claim procedures, long wait times, and poor customer service.  
 
 ---
 
