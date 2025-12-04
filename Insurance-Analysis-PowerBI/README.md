@@ -16,11 +16,14 @@ The goal is to extract meaningful insights, build an interactive dashboard, and 
 ---
 
 ## 📁 Project Files  
-- `Dashboard.pbix` – Interactive Power BI report  
-- `Dataset_1.csv` – Main dataset  
-- `Dataset_2.xlsx` – Secondary dataset (if any)  
-- `screenshots/` – Dashboard images  
-- `README.md` – Documentation  
+
+- [Insurance Data Analysis.pbix](./Insurance%20Data%20Analysis%20(Project%201).pbix) - Interactive Power BI report 
+- [InsuranceData.csv](./InsuranceData.csv) - Main dataset  
+- [Insurance-Customer-Feedback.xlsx](./Insurance-Customer-Feedback.xlsx) - Secondary dataset
+- [Page 1 Dashboard](./Page%201%20(Project%20-%201).jpg) - Dashboard images 
+- [Page 2 Dashboard](./Page%202%20(Project%20-%201).jpg) - Dashboard images  
+- [Page 3 Dashboard](./Page%203%20(Project%20-%201).jpg) - Dashboard images
+- [README.md](./README.md) - Documentation
 
 ---
 
@@ -28,13 +31,13 @@ The goal is to extract meaningful insights, build an interactive dashboard, and 
 Brief explanation of datasets used:
 
 - **Dataset 1:**  
-  - Number of records: ___  
-  - Key fields: ___  
-  - Description: ___  
+  - Number of records: 1005 rows
+  - Key fields: Policy Number, CustomerID, Age, Gender, Policy Type, Start Date, End Date, Premium Amount, Coverage Amount, Claim Number, Claim Date, Claim Amount, Claim Status.
+  - Description: ____________ 
 
 - **Dataset 2:**  
-  - Number of records: ___  
-  - Key fields: ___  
+  - Number of records: 98 rows
+  - Key fields: Customer Name, Feedback  
 
 ---
 
@@ -62,14 +65,14 @@ Key steps performed:
 
 ## 📊 Dashboard Overview  
 Main visuals included:
+## 📸 Main Page
 
-- KPI Cards  
-- Bar & Line Charts  
-- Donut Charts  
-- Age Group Analysis  
-- Policy Category Analysis  
-- WordCloud (sentiment)  
-- Table with conditional formatting  
+![Dashboard Main](./Page%201%20(Project%20-%201).jpg)
+- [Page 2](./Page%202%20(Project%20-%201).jpg) - contains Table with conditional formatting
+
+## Page 3 - WordCloud (sentiment
+ ![Page 3 - WordCloud (sentiment)](./Page%203%20(Project%20-%201).jpg)
+
 
 ---
 
@@ -85,8 +88,8 @@ Main visuals included:
 ## 🔐 Row-Level Security (RLS)  
 Implemented RLS in Power BI to restrict data visibility:
 
-- **Role 1:** ____  
-- **Role 2:** ____  
+- **Role 1:** Travel 
+- **Role 2:** Health
 - Users only see data relevant to their roles  
 - RLS applied in both Desktop & Service  
 
