@@ -31,7 +31,7 @@ The goal is to extract meaningful insights, build an interactive dashboard, and 
 Brief explanation of datasets used:
 
 - **Dataset 1:**  
-  - Number of records: 1005 rows
+  - Number of records: 10,005 rows
   - Key fields: Policy Number, CustomerID, Age, Gender, Policy Type, Start Date, End Date, Premium Amount, Coverage Amount, Claim Number, Claim Date, Claim Amount, Claim Status.
   - Description: ____________ 
 
