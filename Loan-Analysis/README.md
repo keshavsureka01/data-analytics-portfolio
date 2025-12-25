@@ -60,6 +60,7 @@ The objective is to derive **actionable business insights** that can help financ
 - Connecting SQL Server to Power BI Service
 - Implementing **incremental refresh** for scalability
 - Enhancing UX with formatted tooltips and visuals
+- Additional info of the things i learnt: <https://docs.google.com/document/d/1SJaVU3YaazjDkASTqvjdKvGb3erFYVrcyFaStERtCak/edit?usp=sharing>
 
 ---
 
