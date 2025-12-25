@@ -64,7 +64,7 @@ The objective is to derive **actionable business insights** that can help financ
 ---
 
 ## 🤝 Feedback
-Feel free to explore the dashboards and share feedback or suggestions.  
-If you’re interested in the methodology or want to replicate the analysis, feel free to connect!
-My Linkedin: <https://www.linkedin.com/in/keshav-sureka/>
+- Feel free to explore the dashboards and share feedback or suggestions.  
+- If you’re interested in the methodology or want to replicate the analysis, feel free to connect!
+- **My Linkedin: <https://www.linkedin.com/in/keshav-sureka/>**
 ---
