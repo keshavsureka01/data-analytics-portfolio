@@ -1,0 +1,93 @@
+A. Measures Table - 1
+
+1. Average Income by Employment 
+Average Income by Employment = CALCULATE(AVERAGE('Loan Analysis Project'[Income]),ALLEXCEPT('Loan Analysis Project','Loan Analysis Project'[EmploymentType]))
+
+-- All Except function filters the values in sucah a way that if you use any filters like a slicer, or a filter is applied using the filters pane, nothing will work on the visual where we have used a measure that uses the ALLEXCEPT formula in it.
+-- In other words we can say that, only the Employment type filter is applied on the visual that is created using this measure and all other filters will not be considered.
+
+2. Average loan Amt by Age Group - as per lecturer = 
+AVERAGEX(VALUES('Loan Analysis Project'[Age Group]),
+AVERAGE('Loan Analysis Project'[LoanAmount]))
+
+-- Values Function returns all the unique values present in the table name given or the column name given to it!
+-- Here, we gave the "Age group column", so it returns all the unique values present in the Age Group column.
+
+3. Average Loan by Age Group - by me = 
+CALCULATE(AVERAGE('Loan Analysis Project'[LoanAmount]),
+DISTINCT('Loan Analysis Project'[Age Group]))
+
+4. Default Rate by Employment Type = 
+VAR TotalRecords = COUNTROWS(ALL('Loan Analysis Project'))
+VAR DefaultRecords = COUNTROWS(FILTER('Loan Analysis Project','Loan Analysis Project'[Default]=TRUE()))
+
+RETURN
+CALCULATE(DIVIDE(DefaultRecords,TotalRecords),ALLSELECTED('Loan Analysis Project'[EmploymentType])) *100
+
+-- So 'all' Function does not let you apply any filters on the calculation your making, while allexcept helps you apply filter of only those columns mentioned in the formula, and all selected, helps you apply filters that are mentioned in the DAX and even the ones used in slicers and filters panel.
+-- VAR = variable
+
+5. Default Rate by Year = 
+VAR TotalValues = 
+CALCULATE(COUNTROWS('Loan Analysis Project'),ALLEXCEPT('Loan Analysis Project','Loan Analysis Project'[Year]))
+
+VAR DefaultValues = COUNTROWS(FILTER('Loan Analysis Project','Loan Analysis Project'[Default]=TRUE()))
+
+RETURN
+
+DIVIDE(DefaultValues,TotalValues)*100
+
+6. Loan Amt by Purpose = SUMX(FILTER('Loan Analysis Project',NOT(ISBLANK('Loan Analysis Project'[LoanAmount]))),'Loan Analysis Project'[LoanAmount])
+
+-- Note: We are trying to find the sum of loan amount wherever the loan amount is "NOT BLANK"/note empty
+
+B. Measures Table - 2
+
+1. Average Loan Amount (High Credit) = 
+AVERAGEX(FILTER('Loan Analysis Project','Loan Analysis Project'[Credit Score Bins]="High"),'Loan Analysis Project'[LoanAmount])
+
+2. MediumX of Loan Amount = MEDIANX('Loan Analysis Project','Loan Analysis Project'[LoanAmount])
+
+3. Total Loan Amount by Mortgage/Dependents (Middle Age Group) = 
+CALCULATE(SUM('Loan Analysis Project'[LoanAmount]),
+            'Loan Analysis Project'[Age Group]="Middle Age Adult")
+
+4. Total Loan by Credit Categories = 
+CALCULATE(SUM('Loan Analysis Project'[LoanAmount]),
+                'Loan Analysis Project'[Age Group]="Adult",
+        ALLEXCEPT('Loan Analysis Project',
+                'Loan Analysis Project'[Age Group],
+                'Loan Analysis Project'[Age],
+                'Loan Analysis Project'[Credit Score Bins],
+                'Loan Analysis Project'[CreditScore]))
+
+5. Total Loan by Education Type = 
+COUNTROWS(FILTER('Loan Analysis Project',
+           NOT(ISBLANK('Loan Analysis Project'[LoanID]))))
+
+C. Measures Table - 3
+
+1. YOY Default Rate = 
+DIVIDE(
+    CALCULATE(COUNTROWS(FILTER('Loan Analysis Project','Loan Analysis Project'[Default]=TRUE())),'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))) -
+    CALCULATE(COUNTROWS(FILTER('Loan Analysis Project','Loan Analysis Project'[Default]=TRUE())),'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))-1)
+
+    ,CALCULATE(COUNTROWS(FILTER('Loan Analysis Project','Loan Analysis Project'[Default]=TRUE())),'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))-1),0) * 100
+
+2, YOY Loan Amount Change = 
+DIVIDE(
+    CALCULATE(SUM('Loan Analysis Project'[LoanAmount]),
+    'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))) -
+    CALCULATE(SUM('Loan Analysis Project'[LoanAmount]),
+    'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))-1)
+
+    ,CALCULATE(SUM('Loan Analysis Project'[LoanAmount]),
+    'Loan Analysis Project'[Year]=YEAR(MAX('Loan Analysis Project'[Loan_Date_DD_MM_YYYY]))-1),0) * 100
+
+3. YTD (Yea-Till-Date) Loan Amount = 
+CALCULATE(SUM('Loan Analysis Project'[LoanAmount])
+        ,DATESYTD('Loan Analysis Project'[Loan_Date_DD_MM_YYYY].[Date])
+        ,ALLEXCEPT('Loan Analysis Project','Loan Analysis Project'[MaritalStatus],'Loan Analysis Project'[Credit Score Bins]))
+
+-- We only want the filters of Marital Satus and of Credit bins to be applied on the visual that we make, so we are using the ALLEXCEPT function to ensure that only the those filters get applied by other visuals/slicers o the report/Dashboard.
+-- Also don't forget to mention .Date after mentioning the date column in DATEYTD Function!
